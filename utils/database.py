@@ -1,14 +1,20 @@
 """
-Concerned with storing and retrieving books from a list.
+Concerned with storing and retrieving books from a csv file.
+Format of the csv file:
+
+name,author,read\n
+name,author,read\n
+name,author,read\n
 """
 
 
-books = []
+books_file = "books.txt"
 
 
 
 def add_book(name, author):
-    books.append({"name": name, "author": author, "read": False})
+    with open(books_file, "a") as file:
+        file.write(f"{name},{author},0\n")
 
 
 
