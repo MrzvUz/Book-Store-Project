@@ -32,12 +32,12 @@ def prompt_add_book():
     name = input('Enter the new book name: ')
     author = input('Enter the new book author: ')
 
-    database.add_book(name, author)
+    database.insert_book(name, author)
 
 
 def list_books():
     for book in database.get_all_books():
-        read = 'YES' if book['read'] else 'NO'
+        read = 'YES' if book['read'] == '1' else 'NO'  # book[3] will be a falsy value (0) if not read
         print(f"{book['name']} by {book['author']} — Read: {read}")
 
 
