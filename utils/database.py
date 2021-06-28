@@ -14,7 +14,7 @@ books_file = "books.txt"
 
 def add_book(name, author):
     with open(books_file, "a") as file:
-        file.write(f"{name},{author},0")
+        file.write(f"{name},{author},0\n")
 
 
 
@@ -47,5 +47,7 @@ def _save_all_books(books):
 
 
 def delete_books(name):
+    books = get_all_books()
     books = [book for book in books if book["name"] != name]
+    _save_all_books(books)
 
